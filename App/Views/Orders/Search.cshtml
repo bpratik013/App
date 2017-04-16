@@ -1,0 +1,54 @@
+﻿@model IEnumerable<App.Models.Order>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search</h2>
+@using (Html.BeginForm())
+{
+    <p>
+        Find by Order No: @Html.TextBox("SearchString")
+        <input type="submit" value="Search"/>
+    </p>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.OrderID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.OrderID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.OrderID })
+                    </td>*@
+            </tr>
+        }
+
+    </table>
+
+}
+
+
+
