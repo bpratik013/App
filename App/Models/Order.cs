@@ -4,6 +4,7 @@ namespace App.Models
 {
     public class Order
     {
+	//I am adding the comment
         public Order()
         {
             this.OrderDetails = new HashSet<OrderDetail>();
